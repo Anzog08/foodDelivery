@@ -1,11 +1,11 @@
-import { Response, Request } from "express"
+import { Response, Request } from "express";
+import { createUserQuery } from "../../queries/user";
 
-export const createUserController = async (req:Request, res:Response) => {
+export const createUserController = async (req: Request, res: Response) => {
   try {
-
-
-
-  } catch (error:any) {
+    const user = await createUserQuery(req);
+    res.json(user);
+  } catch (error: any) {
     res.send(error.message);
   }
 };
